@@ -1,8 +1,8 @@
 format = """
-$directory $git_branch$git_commit$git_state$git_metrics$git_status $all $cmd_duration$line_break\
-$username $time $character\
+$status$git_branch$git_commit$git_state$git_metrics$git_status$directory $fill $all$line_break\
+$hostname$username $shell $character\
 """
-
+right_format = "$cmd_duration $localip$time"
 
 [aws]
 format = '\[[$symbol($profile)(\($region\))(\[$duration\])]($style)\]'
@@ -44,6 +44,7 @@ format = '\[[$symbol($version)]($style)\]'
 [directory]
 format = "[$path]($style) [$read_only]($read_only_style)"
 truncation_symbol = '⋯/'
+truncation_length = 8
 read_only = ""
 use_os_path_sep = false
 
@@ -62,11 +63,15 @@ format = '\[[$symbol($version)]($style)\]'
 [erlang]
 format = '\[[$symbol($version)]($style)\]'
 
+[fill]
+symbol = " "
+
 [gcloud]
 format = '\[[$symbol$account(@$domain)(\($region\))]($style)\]'
 
 [git_branch]
 format = '\[[$symbol$branch]($style)(:$remote_branch)\]'
+symbol = ''
 
 [git_commit]
 format = '(\[[$hash]($style)\])'
@@ -80,7 +85,7 @@ format = '(\[[+$added]($added_style)[-$deleted]($deleted_style)\])'
 disabled = false
 
 [git_status]
-format = '(\[[$all_status$ahead_behind]($style)\])'
+format = '(\[[$all_status$ahead_behind]($style)\]) '
 ahead = "[⇡${count}](bold green)"
 diverged = "$ahead$behind"
 behind = "[⇣${count}](bold red)"
@@ -106,6 +111,8 @@ format = '\[[$symbol$branch]($style)\]'
 
 [hostname]
 format = '\[[$hostname]($style)\]'
+ssh_symbol = ' '
+style = 'bold yellow'
 
 [java]
 format = '\[[$symbol($version)]($style)\]'
@@ -118,6 +125,11 @@ format = '\[[$symbol($version)]($style)\]'
 
 [kubernetes]
 format = '\[[$symbol$context( \($namespace\))]($style)\]'
+
+[localip]
+format = '\[[$localipv4]($style)\] '
+style = 'bold yellow'
+disabled = false
 
 [lua]
 format = '\[[$symbol($version)]($style)\]'
@@ -176,8 +188,30 @@ format = '\[[$symbol($version)]($style)\]'
 [scala]
 format = '\[[$symbol($version)]($style)\]'
 
+[shell]
+format = '\[[$indicator]($style)\]'
+style = 'bold blue'
+disabled = false
+bash_indicator = '#!'
+fish_indicator = '󰈺 '
+ion_indicator = ' '
+nu_indicator = 'nu'
+powershell_indicator = '_'
+
 [spack]
 format = '\[[$symbol$environment]($style)\]'
+
+[status]
+format = '''\[[$symbol $common_meaning$signal_name$maybe_int]($style)\]
+'''
+disabled = false
+symbol = ''
+not_executable_symbol = ''
+not_found_symbol = '󰍉'
+sigint_symbol = ''
+signal_symbol = ''
+map_symbol = true
+pipestatus = true
 
 [sudo]
 format = '\[[as $symbol]\]'
