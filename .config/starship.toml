@@ -1,8 +1,14 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+
 format = """
-$status$git_branch$git_commit$git_state$git_metrics$git_status$directory $fill $all$line_break\
-$hostname$username $shell $character\
+$time( $cmd_duration) $status $line_break\
+($git_branch$git_commit$git_state$git_metrics$git_status )$directory $package $all $line_break\
+$localip$hostname$username $shell $sudo $character\
 """
-right_format = "$cmd_duration $localip$time"
+
+continuation_prompt = '[⋯](bright-black)'
+
+add_newline = true
 
 [aws]
 format = '\[[$symbol($profile)(\($region\))(\[$duration\])]($style)\]'
@@ -42,7 +48,7 @@ format = '\[[$symbol($version)]($style)\]'
 format = '\[[$symbol($version)]($style)\]'
 
 [directory]
-format = "[$path]($style) [$read_only]($read_only_style)"
+format = "[$path]($style)[( $read_only)]($read_only_style)"
 truncation_symbol = '⋯/'
 truncation_length = 8
 read_only = ""
@@ -85,7 +91,7 @@ format = '(\[[+$added]($added_style)[-$deleted]($deleted_style)\])'
 disabled = false
 
 [git_status]
-format = '(\[[$all_status$ahead_behind]($style)\]) '
+format = '(\[[$all_status$ahead_behind]($style)\])'
 ahead = "[⇡${count}](bold green)"
 diverged = "$ahead$behind"
 behind = "[⇣${count}](bold red)"
@@ -192,19 +198,24 @@ format = '\[[$symbol($version)]($style)\]'
 format = '\[[$indicator]($style)\]'
 style = 'bold blue'
 disabled = false
-bash_indicator = '#!'
-fish_indicator = '󰈺 '
-ion_indicator = ' '
-nu_indicator = 'nu'
-powershell_indicator = '_'
+bash_indicator       = '#!'
+cmd_indicator        = ' '
+elvish_indicator     = 'el'
+fish_indicator       = '󰈺 '
+ion_indicator        = ' '
+nu_indicator         = 'nu'
+powershell_indicator = '>_'
+xonsh_indicator      = 'x'
+zsh_indicator        = 'z '
+unknown_indicator    = '??'
 
 [spack]
 format = '\[[$symbol$environment]($style)\]'
 
 [status]
-format = '''\[[$symbol $common_meaning$signal_name$maybe_int]($style)\]
-'''
+format = '\[[$symbol $common_meaning$signal_name$maybe_int]($style)\]'
 disabled = false
+style = 'bold red'
 symbol = ''
 not_executable_symbol = ''
 not_found_symbol = '󰍉'
@@ -214,7 +225,10 @@ map_symbol = true
 pipestatus = true
 
 [sudo]
-format = '\[[as $symbol]\]'
+format = '\[[$symbol]($style)\]'
+style = 'bold bright-red'
+symbol = "root"
+disabled = false
 
 [swift]
 format = '\[[$symbol($version)]($style)\]'
@@ -224,7 +238,8 @@ format = '\[[$symbol$workspace]($style)\]'
 
 [time]
 format = '\[[$time]($style)\]'
-time_format = '%F %T'
+time_format = '%F %R %:z'
+style = 'bold purple'
 disabled = false
 
 [username]
