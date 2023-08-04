@@ -59,8 +59,8 @@
 "markup.raw.inline" = { fg = "orange" } # `Inline code block` in Markdown.
 "markup.heading" = { fg = "yellow", modifiers = ["bold"] }
 "markup.list" = { fg = "magenta", modifiers = ["bold"] }
-"markup.bold" = { fg = "orange", modifiers = ["bold"] }
-"markup.italic" = { fg = "pink" }
+"markup.bold" = { modifiers = ["bold"] }
+"markup.italic" = { modifiers = ["italic"] }
 "markup.strikethrough" = { modifiers = ["crossed_out"] }
 "markup.link" = { fg = "yellow-bright", modifiers = ["bold"] }
 "markup.quote" = { fg = "blue" }
