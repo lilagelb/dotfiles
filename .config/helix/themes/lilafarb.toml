@@ -85,14 +85,14 @@
 "attribute" = { fg = "yellow" } # Class attributes, html tag attributes.
 
 "type" = { fg = "yellow" } # Variable type, like integer or string, including program defined classes, structs etc..
-"type.builtin" = { fg = "cyan-bright" } # Primitive types of the language (string, int, float).
-"type.enum.variant" = { fg = "orange-bright" }
+"type.builtin" = { fg = "cyan-bright", modifiers = ["italic"] } # Primitive types of the language (string, int, float).
+"type.enum.variant" = { fg = "orange" }
 
 "constructor" = { fg = "magenta" } # Constructor method for a class or struct.
 
-"constant" = { fg = "orange-bright" } # Constant value
-"constant.builtin" = { fg = "orange-bright" } # Special constants like `true`, `false`, `none`, etc.
-"constant.builtin.boolean" = { fg = "orange" } # True or False.
+"constant" = { fg = "orange" } # Constant value
+"constant.builtin" = { fg = "orange", modifiers = ["italic"] } # Special constants like `true`, `false`, `none`, etc.
+"constant.builtin.boolean" = { fg = "orange", modifiers = ["italic"] } # True or False.
 "constant.character" = { fg = "green" } # Constant of character type.
 "constant.character.escape" = { fg = "yellow-bright", modifiers = ["bold"] } # escape codes like \n.
 "constant.numeric"  = { fg = "orange" } # constant integer or float value.
@@ -106,7 +106,7 @@
 "comment.block.documentation" = { fg = "comment", modifiers = ["bold"] } # Doc comments, e.g '///' in rust.
 
 "variable" = { fg = "white" }  # Variable names.
-"variable.builtin" = { fg = "red", modifiers = ["italic"] } # Language reserved variables: `this`, `self`, `super`, etc.
+"variable.builtin" = { fg = "pink", modifiers = ["italic"] } # Language reserved variables: `this`, `self`, `super`, etc.
 "variable.parameter" = { fg = "cyan-bright" } # Function parameters.
 "variable.other.member" = { fg = "fg2" } # Fields of composite data types (e.g. structs, unions).
 
@@ -118,24 +118,24 @@
 # "punctuation.special" = { fg = "fg2" } # String interpolation brackets
 
 "keyword" = { fg = "magenta", modifiers = ["italic"] } # Language reserved keywords.
-"keyword.control" = { fg = "pink", modifiers = ["italic"] } # Control keywords.
+"keyword.control" = { fg = "magenta-bright", modifiers = ["italic"] } # Control keywords.
 "keyword.control.conditional" = { fg = "magenta-bright", modifiers = ["italic"] } # `if`, `else`, `elif`.
 "keyword.control.repeat" = { fg = "magenta-bright", modifiers = ["italic"] } # `for`, `while`, `loop`.
-"keyword.control.import" = { fg = "pink-bright", modifiers = ["italic"] } # `import`, `export` `use`.
-"keyword.control.return" = { fg = "magenta", modifiers = ["italic"] } # `return` in most languages.
-"keyword.control.exception" = { fg = "magenta", modifiers = ["italic"] } # `try`, `catch`, `raise`/`throw` and related.
-"keyword.operator" = { fg = "fg2", modifiers = ["italic"] } # 'or', 'and', 'in'.
+"keyword.control.import" = { fg = "magenta-bright", modifiers = ["italic"] } # `import`, `export` `use`.
+"keyword.control.return" = { fg = "magenta-bright", modifiers = ["italic"] } # `return` in most languages.
+"keyword.control.exception" = { fg = "magenta-bright", modifiers = ["italic"] } # `try`, `catch`, `raise`/`throw` and related.
+"keyword.operator" = { fg = "red", modifiers = ["italic"] } # 'or', 'and', 'in'.
 "keyword.directive" = { fg = "pink-bright", modifiers = ["italic"] } # Preprocessor directives (#if in C...).
-"keyword.function" = { fg = "red", modifiers = ["italic"] } # The keyword to define a funtion: 'def', 'fun', 'fn'.
+"keyword.function" = { fg = "magenta", modifiers = ["italic"] } # The keyword to define a funtion: 'def', 'fun', 'fn'.
 "keyword.storage" = { fg = "magenta", modifiers = ["italic"] } # Keywords describing how things are stored
 "keyword.storage.type" = { fg = "magenta", modifiers = ["italic"] } #  The type of something, class, function, var, let, etc.
-"keyword.storage.modifier" = { fg = "yellow", modifiers = ["italic"] } # Storage modifiers like static, mut, const, ref, etc.
+"keyword.storage.modifier" = { fg = "magenta", modifiers = ["italic"] } # Storage modifiers like static, mut, const, ref, etc.
 
-"operator" = {  fg = "fg2" } # Logical, mathematical, and other operators.
+"operator" = { fg = "red" } # All operators. Coloured red to make operators like '!' easy to see
 
 "function" = { fg = "blue-bright" }
-"function.builtin" = { fg = "red", modifiers = ["italic"] }
-"function.macro" = { fg = "red" }
+"function.builtin" = { fg = "pink", modifiers = ["italic"] }
+"function.macro" = { fg = "pink-bright" }
 # "function.special" = { fg = "blue-bright" } # Preprocessor function in C.
 # "function.method" = { fg = "blue-bright" } # Class / Struct methods.
 
