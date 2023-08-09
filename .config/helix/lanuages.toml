@@ -1,5 +1,28 @@
 [[language]]
 name = "rust"
 
-[language-server.rust-analyzer.config.check]
+[language.config.check]
 command = "clippy"
+extraArgs = ["--",
+  "-W", "clippy::pedantic",
+  "-W", "clippy::nursery",
+  "-W", "clippy::absolute_paths",
+  "-W", "clippy::expect_used",
+  "-W", "clippy::if_then_some_else_none",
+  "-W", "clippy::indexing_slicing",
+  "-W", "clippy::integer_division",
+  "-W", "clippy::lossy_float_literal",
+  "-W", "clippy::missing_trait_methods",
+  "-W", "clippy::multiple_inherent_impl",
+  "-W", "clippy::multiple_unsafe_ops_per_block",
+  "-W", "clippy::negative_feature_names",
+  "-W", "clippy::pub_without_shorthand",
+  "-W", "clippy::redundant_type_annotations",
+  "-W", "clippy::same_name_method",
+  "-W", "clippy::str_to_string",
+  "-W", "clippy::undocumented_unsafe_blocks",
+  "-W", "clippy::unwrap_used",
+  "-D", "clippy::allow_attributes_without_reason",
+  "-D", "clippy::mod_module_files",
+  "-D", "clippy::tests_outside_test_module",
+]
