@@ -26,3 +26,7 @@ hidden = false
 [editor.indent-guides]
 render = true
 character = "▏"
+
+[editor.lsp]
+display-inlay-hints = true
+display-messages = true
