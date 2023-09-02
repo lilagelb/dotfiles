@@ -3,7 +3,7 @@
 format = """
 $time( $cmd_duration) $status $line_break\
 ($git_branch$git_commit$git_state$git_metrics$git_status )$directory $package $all $line_break\
-$localip$hostname$username $shell $sudo $character\
+$localip$hostname$username $shell ($sudo )$character\
 """
 
 continuation_prompt = '[⋯](bright-black)'

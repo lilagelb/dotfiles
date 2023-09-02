@@ -20,6 +20,12 @@ software itself.
 
 ## Per-Config
 
+### `bacon.toml`
+
+Configures: `bacon`
+
+Note that this has to be included in the directory of each individual project using Bacon as a testrunner.
+
 ### `.cargo/config.toml`
 
 Configures: Cargo
@@ -31,18 +37,18 @@ Requires:
 
 Configures: Helix editor
 
-### `.config/neofetch`
+### `.config/neofetch/config.conf`
 
 Configures: `neofetch`
 
-### `.config/nushell`
+### `.config/nushell/`
 
 Configures: Nushell
 
 Requires:
 - Starship prompt (via cargo)
 
-### `.starship.toml`
+### `.config/starship.toml`
 
 Configures: Starship prompt
 
