@@ -294,7 +294,7 @@ let-env config = {
   use_grid_icons: true
   footer_mode: "25" # always, never, number_of_rows, auto
   float_precision: 2 # the precision for displaying floats in tables
-  # buffer_editor: "emacs" # command that will be used to edit the current line buffer with ctrl+o, if unset fallback to $env.EDITOR and $env.VISUAL
+  buffer_editor: "hx" # command that will be used to edit the current line buffer with ctrl+o, if unset fallback to $env.EDITOR and $env.VISUAL
   use_ansi_coloring: true
   bracketed_paste: true # enable bracketed paste, currently useless on windows
   edit_mode: emacs # emacs, vi
@@ -550,5 +550,10 @@ def ll [] {
     ls -l | move mode --before name | move uid --after mode | move group --after mode | move size --after name | move created --after size | move accessed --after created | move modified --after accessed
 }
 
+alias vim = nvim
+
+# Add br shell command for Broot (https://dystroy.org/broot/)
+source ~/.config/broot/launcher/nushell/br
+
 # Boot Starship prompt
-source ~/.cache/starship/init.nu
+use ~/.cache/starship/init.nu
